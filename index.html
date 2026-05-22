@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hillary Fransiskus — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f5f3ef;
+    --surface: #faf9f7;
+    --card: #ffffff;
+    --text: #1a1917;
+    --muted: #6b6760;
+    --accent: #2d5a3d;
+    --accent-light: #e8f0ea;
+    --accent2: #8b5e3c;
+    --accent2-light: #f5ece4;
+    --border: rgba(26,25,23,0.10);
+    --tag-bg: #e8f0ea;
+    --tag-text: #1e4029;
+    --award-bg: #fef3e2;
+    --award-text: #7a4510;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245,243,239,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    height: 60px;
+  }
+  .nav-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.875rem;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 6rem 2rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 3rem;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-bio {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-family: 'DM Mono', monospace;
+  }
+  .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  .hero-link.primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .hero-link.primary:hover { background: #234830; }
+  .hero-link.secondary {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .hero-link.secondary:hover { background: var(--accent-light); }
+
+  /* AVATAR BADGE */
+  .avatar-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .avatar {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent) 0%, #4a8f5e 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .avatar-school {
+    font-size: 0.7rem;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+
+  /* SECTION */
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  .section-header {
+    display: flex; align-items: baseline; gap: 1rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+  }
+  .section-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* PROJECT GRID */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* PROJECT CARD */
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .project-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.07); }
+  .project-card:hover::before { opacity: 1; }
+
+  .project-card.featured::before { opacity: 1; }
+  .project-card.featured-alt::before {
+    background: var(--accent2);
+    opacity: 1;
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .card-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: var(--accent-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .card-icon.warm { background: var(--accent2-light); }
+  .card-meta {
+    display: flex; flex-direction: column; gap: 4px;
+    align-items: flex-end;
+  }
+  .card-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+  .card-org {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-align: right;
+  }
+  .award-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: var(--award-bg);
+    color: var(--award-text);
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.03em;
+  }
+
+  .project-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .project-subtitle {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: -6px;
+  }
+  .project-subtitle.warm { color: var(--accent2); }
+  .project-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.65;
+    flex: 1;
+  }
+  .project-highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .project-highlights li {
+    font-size: 0.85rem;
+    color: var(--text);
+    padding-left: 1.2em;
+    position: relative;
+    line-height: 1.5;
+  }
+  .project-highlights li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+    top: 1px;
+  }
+  .project-highlights li.warm::before { color: var(--accent2); }
+
+  .card-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .card-tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-family: 'DM Mono', monospace;
+  }
+  .card-tag.warm {
+    background: var(--accent2-light);
+    color: #5a3018;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+  .skill-card-label {
+    font-size: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+  .skill-list {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .skill-pill {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  /* CONTACT */
+  .contact-bar {
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+  .contact-bar h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .contact-bar p {
+    opacity: 0.8;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-block;
+    text-decoration: none;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: background 0.2s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.22); }
+
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; }
+    .avatar-block { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Hillary Fransiskus</span>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">Engineering Systems & Design · SUTD</div>
+    <h1 class="hero-name">Building things<br>that <em>matter</em>.</h1>
+    <p class="hero-bio">
+      Engineering student specialising in data analytics and operations research.
+      I work at the intersection of machine learning, optimisation, and design —
+      from RAG systems to robotics prototypes.
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">Data Analytics</span>
+      <span class="hero-tag">Machine Learning</span>
+      <span class="hero-tag">Optimisation</span>
+      <span class="hero-tag">Python</span>
+      <span class="hero-tag">GMS Scholar</span>
+    </div>
+    <div class="hero-links">
+      <a href="https://linkedin.com/in/hillaryfransiskus" class="hero-link primary" target="_blank">LinkedIn ↗</a>
+      <a href="mailto:hillaryfransiskus88@gmail.com" class="hero-link secondary">Email me</a>
+    </div>
+  </div>
+  <div class="avatar-block">
+    <div class="avatar">HF</div>
+    <div class="avatar-school">SUTD · Singapore<br>Expected May 2028</div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <h2 class="section-title">Projects</h2>
+    <span class="section-count">6 projects</span>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- 1. Multi-Modal RAG -->
+    <div class="project-card featured">
+      <div class="card-top">
+        <div class="card-icon">🤖</div>
+        <div class="card-meta">
+          <span class="card-date">Jan 2026 – May 2026</span>
+          <span class="card-org">SUTD × Infineon Technologies</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="project-title">Multi-Modal RAG System</h3>
+        <div class="project-subtitle">Enhancing Enterprise Knowledge Systems</div>
+      </div>
+      <ul class="project-highlights">
+        <li>Built a multi-modal Retrieval-Augmented Generation system to improve information retrieval over both text and image documents</li>
+        <li>Integrated EasyOCR, CLIP, Groq, and MiniLM — achieving ≥75% accuracy with ≤1 min runtime</li>
+        <li>Designed a 3-page Streamlit frontend (main interface, user manual, index view) for accessibility</li>
+        <li>Wired frontend to backend for seamless, end-to-end user experience</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag">Python</span>
+        <span class="card-tag">Streamlit</span>
+        <span class="card-tag">CLIP</span>
+        <span class="card-tag">EasyOCR</span>
+        <span class="card-tag">Groq</span>
+        <span class="card-tag">MiniLM</span>
+        <span class="card-tag">RAG</span>
+      </div>
+    </div>
+
+    <!-- 2. ELD Optimisation -->
+    <div class="project-card featured">
+      <div class="card-top">
+        <div class="card-icon">⚡</div>
+        <div class="card-meta">
+          <span class="card-date">Jan 2026 – May 2026</span>
+          <span class="card-org">SUTD</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="project-title">Economic Load Dispatch Optimisation</h3>
+        <div class="project-subtitle">Singapore 2050 Sustainability Alignment</div>
+      </div>
+      <ul class="project-highlights">
+        <li>Modelled optimal-cost power dispatch under carbon emission constraints for a single-period ELD problem</li>
+        <li>Validated against medium-scale and Singapore-scale case studies using Julia</li>
+        <li>Aligned solution framework with Singapore's 2050 net-zero sustainability roadmap</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag">Python</span>
+        <span class="card-tag">Julia</span>
+        <span class="card-tag">Optimisation</span>
+        <span class="card-tag">Operations Research</span>
+      </div>
+    </div>
+
+    <!-- 3. Physically Grounded Scene Composition -->
+    <div class="project-card">
+      <div class="card-top">
+        <div class="card-icon">🖼️</div>
+        <div class="card-meta">
+          <span class="card-date">Sep 2025 – Dec 2025</span>
+          <span class="card-org">Zhejiang University × MolarData</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="project-title">Physically Grounded Scene Composition</h3>
+        <div class="project-subtitle">ML Image Generation Research</div>
+      </div>
+      <ul class="project-highlights">
+        <li>Collaborated with MolarData (整数智能) on engineering approaches to physically grounded image generation using ML</li>
+        <li>Led data training preparation — image labelling and annotation pipelines</li>
+        <li>Conducted at Zhejiang University as part of the TIIDE international programme</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag">Machine Learning</span>
+        <span class="card-tag">Computer Vision</span>
+        <span class="card-tag">Data Labelling</span>
+        <span class="card-tag">Image Generation</span>
+      </div>
+    </div>
+
+    <!-- 4. Air Pollution Regression -->
+    <div class="project-card">
+      <div class="card-top">
+        <div class="card-icon">📊</div>
+        <div class="card-meta">
+          <span class="card-date">May 2025 – Aug 2025</span>
+          <span class="card-org">SUTD</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="project-title">Air Pollution Regression Model</h3>
+        <div class="project-subtitle">Jing-Jin-Ji Region Analysis</div>
+      </div>
+      <ul class="project-highlights">
+        <li>Built a multiple linear regression model to predict the impact of 5 factors on air pollution in China's Jing-Jin-Ji region</li>
+        <li>Implemented the model in Python with scikit-learn; cleaned and transformed raw datasets in Excel</li>
+        <li>Iterated on feature selection to maximise model accuracy</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag">Python</span>
+        <span class="card-tag">Regression</span>
+        <span class="card-tag">Data Cleaning</span>
+        <span class="card-tag">Excel</span>
+        <span class="card-tag">ML</span>
+      </div>
+    </div>
+
+    <!-- 5. PUFFETY Fish Robot -->
+    <div class="project-card featured-alt">
+      <div class="card-top">
+        <div class="card-icon warm">🐡</div>
+        <div class="card-meta">
+          <span class="card-date">Jan 2025 – May 2025</span>
+          <span class="card-org">SUTD · DIVE Fund</span>
+          <span class="award-badge">🏆 S$6,000 funded</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="project-title">PUFFETY — Pool Safety Fish Robot</h3>
+        <div class="project-subtitle warm">Design Thinking & Innovation · Robotics</div>
+      </div>
+      <ul class="project-highlights">
+        <li class="warm">Created a working robotics prototype for real-time swimmer-controlled pool safety management</li>
+        <li class="warm">Engineered the core puffing mechanism using a CO₂ canister and solenoid actuator</li>
+        <li class="warm">Ran user interviews to validate experience and refine interaction design</li>
+        <li class="warm">Awarded SUTD DIVE "Baby Shark Fund" — up to S$6,000 in funding</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag warm">Robotics</span>
+        <span class="card-tag warm">Prototyping</span>
+        <span class="card-tag warm">Mechanical Design</span>
+        <span class="card-tag warm">User Research</span>
+        <span class="card-tag warm">Fusion 360</span>
+      </div>
+    </div>
+
+    <!-- 6. Patch Mì Up -->
+    <div class="project-card featured-alt">
+      <div class="card-top">
+        <div class="card-icon warm">♻️</div>
+        <div class="card-meta">
+          <span class="card-date">Sep 2025</span>
+          <span class="card-org">VinUniversity, Hanoi</span>
+          <span class="award-badge">🏆 Champion</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="project-title">Patch Mì Up</h3>
+        <div class="project-subtitle warm">Startup Pitch · Sustainable Fashion</div>
+      </div>
+      <ul class="project-highlights">
+        <li class="warm">Conceived a youth-focused startup to reduce environmental degradation through recycled and upcycled fashion</li>
+        <li class="warm">Pitched to investors at VinUniversity Business Competition 2025 in Hanoi, Vietnam</li>
+        <li class="warm">Awarded Champion of SUTD Innovation & Entrepreneurship Programme 2025 — most innovative idea out of 9 groups</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag warm">Entrepreneurship</span>
+        <span class="card-tag warm">Sustainability</span>
+        <span class="card-tag warm">Pitch Deck</span>
+        <span class="card-tag warm">Innovation</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-label">Languages</div>
+      <div class="skill-list">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">R</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">Julia</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label">ML & Data</div>
+      <div class="skill-list">
+        <span class="skill-pill">scikit-learn</span>
+        <span class="skill-pill">Regression</span>
+        <span class="skill-pill">RAG</span>
+        <span class="skill-pill">CLIP</span>
+        <span class="skill-pill">NLP</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label">Tools</div>
+      <div class="skill-list">
+        <span class="skill-pill">Streamlit</span>
+        <span class="skill-pill">Excel</span>
+        <span class="skill-pill">Fusion 360</span>
+        <span class="skill-pill">Git</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label">Design & Media</div>
+      <div class="skill-list">
+        <span class="skill-pill">Photoshop</span>
+        <span class="skill-pill">Premiere Pro</span>
+        <span class="skill-pill">Canva</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label">Soft Skills</div>
+      <div class="skill-list">
+        <span class="skill-pill">Project Mgmt</span>
+        <span class="skill-pill">Collaboration</span>
+        <span class="skill-pill">Adaptability</span>
+        <span class="skill-pill">Social Media</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label">Languages</div>
+      <div class="skill-list">
+        <span class="skill-pill">English</span>
+        <span class="skill-pill">Indonesian</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-bar" id="contact">
+  <h2>Let's connect</h2>
+  <p>Open to internship opportunities · Singapore & globally</p>
+  <div class="contact-links">
+    <a href="mailto:hillaryfransiskus88@gmail.com" class="contact-link">✉ hillaryfransiskus88@gmail.com</a>
+    <a href="https://linkedin.com/in/hillaryfransiskus" class="contact-link" target="_blank">LinkedIn ↗</a>
+    <a href="tel:+6582839900" class="contact-link">📞 +65 8283 9900</a>
+  </div>
+</div>
+
+<footer>Built with HTML · Hillary Fransiskus · SUTD 2028</footer>
+
+</body>
+</html>
