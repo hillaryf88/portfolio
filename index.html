@@ -382,38 +382,7 @@
     letter-spacing: 0.02em;
   }
 
-  /* COLLAPSIBLE */
-  .project-card { cursor: pointer; }
-  .card-expandable {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.3s ease;
-    overflow: hidden;
-  }
-  .card-expandable-inner { min-height: 0; }
-  .project-card.open .card-expandable { grid-template-rows: 1fr; }
-  .card-expand-hint {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 0.25rem;
-    padding-top: 0.6rem;
-    border-top: 1px solid var(--border);
-  }
-  .card-expand-hint span {
-    font-size: 0.72rem;
-    color: var(--blue);
-    font-family: 'Space Mono', monospace;
-    letter-spacing: 0.04em;
-  }
-  .expand-arrow {
-    font-size: 0.7rem;
-    color: var(--blue);
-    transition: transform 0.3s ease;
-    display: inline-block;
-  }
-  .project-card.open .expand-arrow { transform: rotate(180deg); }
-  .card-expandable-inner { padding-top: 0.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
   .skills-section { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .skills-inner {
     max-width: 960px;
@@ -640,7 +609,7 @@
   <div class="projects-grid">
 
     <!-- 1. Multi-Modal RAG -->
-    <div class="project-card" onclick="this.classList.toggle('open')">
+    <div class="project-card">
       <div class="card-header">
         <span class="card-type">NLP</span>
         <span class="card-date">Jan – May 2026</span>
@@ -649,31 +618,23 @@
         <div class="project-title">Multi-Modal RAG System</div>
         <div class="project-org">SUTD × Infineon Technologies</div>
       </div>
-      <div class="card-expandable">
-        <div class="card-expandable-inner">
-          <ul class="project-highlights">
-            <li>Built a Retrieval-Augmented Generation system for enterprise knowledge retrieval across text and image documents</li>
-            <li>Integrated EasyOCR, Groq, and MiniLM — achieving ≥75% accuracy with ≤1 min runtime</li>
-            <li>Designed and built a 3-page Streamlit frontend; wired to backend for seamless end-to-end UX</li>
-          </ul>
-          <div class="card-tags">
-            <span class="card-tag">Python</span>
-            <span class="card-tag">Streamlit</span>
-            <span class="card-tag">EasyOCR</span>
-            <span class="card-tag">Groq</span>
-            <span class="card-tag">MiniLM</span>
-            <span class="card-tag">RAG</span>
-          </div>
-        </div>
-      </div>
-      <div class="card-expand-hint">
-        <span class="expand-text">View details</span>
-        <span class="expand-arrow">▾</span>
+      <ul class="project-highlights">
+        <li>Built a Retrieval-Augmented Generation system for enterprise knowledge retrieval across text and image documents</li>
+        <li>Integrated EasyOCR, Groq, and MiniLM — achieving ≥75% accuracy with ≤1 min runtime</li>
+        <li>Designed and built a 3-page Streamlit frontend; wired to backend for seamless end-to-end UX</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag">Python</span>
+        <span class="card-tag">Streamlit</span>
+        <span class="card-tag">EasyOCR</span>
+        <span class="card-tag">Groq</span>
+        <span class="card-tag">MiniLM</span>
+        <span class="card-tag">RAG</span>
       </div>
     </div>
 
     <!-- 2. ELD Optimisation -->
-    <div class="project-card" onclick="this.classList.toggle('open')">
+    <div class="project-card">
       <div class="card-header">
         <span class="card-type">Optimisation · OR</span>
         <span class="card-date">Jan – May 2026</span>
@@ -682,29 +643,21 @@
         <div class="project-title">Economic Load Dispatch Optimisation</div>
         <div class="project-org">SUTD — Singapore 2050 Sustainability</div>
       </div>
-      <div class="card-expandable">
-        <div class="card-expandable-inner">
-          <ul class="project-highlights">
-            <li>Modelled optimal-cost power dispatch under carbon emission constraints for a single-period ELD problem</li>
-            <li>Validated against medium-scale and Singapore-scale energy systems using Julia</li>
-            <li>Aligned solution framework with Singapore's 2050 net-zero sustainability roadmap</li>
-          </ul>
-          <div class="card-tags">
-            <span class="card-tag">Python</span>
-            <span class="card-tag">Julia</span>
-            <span class="card-tag">Optimisation</span>
-            <span class="card-tag">Operations Research</span>
-          </div>
-        </div>
-      </div>
-      <div class="card-expand-hint">
-        <span class="expand-text">View details</span>
-        <span class="expand-arrow">▾</span>
+      <ul class="project-highlights">
+        <li>Modelled optimal-cost power dispatch under carbon emission constraints for a single-period ELD problem</li>
+        <li>Validated against medium-scale and Singapore-scale energy systems using Julia</li>
+        <li>Aligned solution framework with Singapore's 2050 net-zero sustainability roadmap</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag">Python</span>
+        <span class="card-tag">Julia</span>
+        <span class="card-tag">Optimisation</span>
+        <span class="card-tag">Operations Research</span>
       </div>
     </div>
 
     <!-- 3. Air Pollution Regression -->
-    <div class="project-card" onclick="this.classList.toggle('open')">
+    <div class="project-card">
       <div class="card-header">
         <span class="card-type">Data Analytics</span>
         <span class="card-date">May – Aug 2025</span>
@@ -713,30 +666,22 @@
         <div class="project-title">Air Pollution Regression Model</div>
         <div class="project-org">SUTD — Jing-Jin-Ji Region, China</div>
       </div>
-      <div class="card-expandable">
-        <div class="card-expandable-inner">
-          <ul class="project-highlights">
-            <li>Built a multiple linear regression model predicting the impact of 5 factors on regional air pollution</li>
-            <li>Implemented in Python; cleaned and transformed raw datasets in Excel</li>
-            <li>Iterated on feature selection to maximise model accuracy and interpretability</li>
-          </ul>
-          <div class="card-tags">
-            <span class="card-tag">Python</span>
-            <span class="card-tag">Regression</span>
-            <span class="card-tag">Data Cleaning</span>
-            <span class="card-tag">Excel</span>
-            <span class="card-tag">scikit-learn</span>
-          </div>
-        </div>
-      </div>
-      <div class="card-expand-hint">
-        <span class="expand-text">View details</span>
-        <span class="expand-arrow">▾</span>
+      <ul class="project-highlights">
+        <li>Built a multiple linear regression model predicting the impact of 5 factors on regional air pollution</li>
+        <li>Implemented in Python; cleaned and transformed raw datasets in Excel</li>
+        <li>Iterated on feature selection to maximise model accuracy and interpretability</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag">Python</span>
+        <span class="card-tag">Regression</span>
+        <span class="card-tag">Data Cleaning</span>
+        <span class="card-tag">Excel</span>
+        <span class="card-tag">scikit-learn</span>
       </div>
     </div>
 
     <!-- 4. Scene Composition -->
-    <div class="project-card" onclick="this.classList.toggle('open')">
+    <div class="project-card">
       <div class="card-header">
         <span class="card-type">Research · Image Generation</span>
         <span class="card-date">Sep – Dec 2025</span>
@@ -745,27 +690,19 @@
         <div class="project-title">Physically Grounded Scene Composition</div>
         <div class="project-org">Zhejiang University × MolarData 整数智能</div>
       </div>
-      <div class="card-expandable">
-        <div class="card-expandable-inner">
-          <ul class="project-highlights">
-            <li>Researched engineering approaches to physically grounded image generation using machine learning</li>
-            <li>Led data training preparation — image labelling and annotation pipelines for model training</li>
-            <li>Conducted at Zhejiang University, Hangzhou as part of the international TIIDE programme</li>
-          </ul>
-          <div class="card-tags">
-            <span class="card-tag">Data Labelling</span>
-            <span class="card-tag">Image Generation</span>
-          </div>
-        </div>
-      </div>
-      <div class="card-expand-hint">
-        <span class="expand-text">View details</span>
-        <span class="expand-arrow">▾</span>
+      <ul class="project-highlights">
+        <li>Researched engineering approaches to physically grounded image generation using machine learning</li>
+        <li>Led data training preparation — image labelling and annotation pipelines for model training</li>
+        <li>Conducted at Zhejiang University, Hangzhou as part of the international TIIDE programme</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag">Data Labelling</span>
+        <span class="card-tag">Image Generation</span>
       </div>
     </div>
 
     <!-- 5. PUFFETY -->
-    <div class="project-card award" onclick="this.classList.toggle('open')">
+    <div class="project-card award">
       <div class="card-header">
         <span class="card-type award-type">Robotics · Design</span>
         <span class="card-date">Jan – May 2025</span>
@@ -775,29 +712,21 @@
         <div class="project-org">SUTD Design Thinking & Innovation</div>
         <div class="award-badge">🏆 DIVE Baby Shark Fund — S$6,000</div>
       </div>
-      <div class="card-expandable">
-        <div class="card-expandable-inner">
-          <ul class="project-highlights">
-            <li>Built a working robotics prototype for swimmer-controlled pool safety management</li>
-            <li>Engineered the CO₂ canister + solenoid puffing mechanism as a core mechanical system</li>
-            <li>Conducted user interviews to validate and refine the interaction design</li>
-          </ul>
-          <div class="card-tags">
-            <span class="card-tag">Robotics</span>
-            <span class="card-tag">Prototyping</span>
-            <span class="card-tag">Fusion 360</span>
-            <span class="card-tag">User Research</span>
-          </div>
-        </div>
-      </div>
-      <div class="card-expand-hint">
-        <span class="expand-text">View details</span>
-        <span class="expand-arrow">▾</span>
+      <ul class="project-highlights">
+        <li>Built a working robotics prototype for swimmer-controlled pool safety management</li>
+        <li>Engineered the CO₂ canister + solenoid puffing mechanism as a core mechanical system</li>
+        <li>Conducted user interviews to validate and refine the interaction design</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag">Robotics</span>
+        <span class="card-tag">Prototyping</span>
+        <span class="card-tag">Fusion 360</span>
+        <span class="card-tag">User Research</span>
       </div>
     </div>
 
     <!-- 6. Patch Mi Up -->
-    <div class="project-card award" onclick="this.classList.toggle('open')">
+    <div class="project-card award">
       <div class="card-header">
         <span class="card-type award-type">Entrepreneurship</span>
         <span class="card-date">Sep 2025</span>
@@ -807,23 +736,15 @@
         <div class="project-org">VinUniversity Business Competition, Hanoi</div>
         <div class="award-badge">🏆 Champion — SUTD I&E Programme 2025</div>
       </div>
-      <div class="card-expandable">
-        <div class="card-expandable-inner">
-          <ul class="project-highlights">
-            <li>Conceived a youth-focused startup tackling environmental degradation through upcycled fashion</li>
-            <li>Pitched to investors at VinUniversity 2025 — awarded Champion out of 9 competing groups</li>
-          </ul>
-          <div class="card-tags">
-            <span class="card-tag">Entrepreneurship</span>
-            <span class="card-tag">Sustainability</span>
-            <span class="card-tag">Pitch Deck</span>
-            <span class="card-tag">Innovation</span>
-          </div>
-        </div>
-      </div>
-      <div class="card-expand-hint">
-        <span class="expand-text">View details</span>
-        <span class="expand-arrow">▾</span>
+      <ul class="project-highlights">
+        <li>Conceived a youth-focused startup tackling environmental degradation through upcycled fashion</li>
+        <li>Pitched to investors at VinUniversity 2025 — awarded Champion out of 9 competing groups</li>
+      </ul>
+      <div class="card-tags">
+        <span class="card-tag">Entrepreneurship</span>
+        <span class="card-tag">Sustainability</span>
+        <span class="card-tag">Pitch Deck</span>
+        <span class="card-tag">Innovation</span>
       </div>
     </div>
 
@@ -909,13 +830,5 @@
 
 <footer>HILLARY FRANSISKUS &nbsp;·&nbsp; SUTD 2028 &nbsp;·&nbsp; BUILT WITH HTML + CSS</footer>
 
-<script>
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const hint = card.querySelector('.expand-text');
-      if (hint) hint.textContent = card.classList.contains('open') ? 'Hide details' : 'View details';
-    });
-  });
-</script>
 </body>
 </html>
