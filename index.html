@@ -68,15 +68,7 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--blue); }
-  .nav-badge {
-    background: var(--blue);
-    color: #fff;
-    font-size: 0.7rem;
-    font-family: 'Space Mono', monospace;
-    padding: 4px 10px;
-    border-radius: 4px;
-    letter-spacing: 0.05em;
-  }
+
 
   /* HERO */
   .hero {
@@ -199,52 +191,48 @@
   }
   .hero-link.secondary:hover { background: var(--blue-light); }
 
-  /* TERMINAL CARD */
-  .terminal {
-    background: #0a0f1e;
+  /* ABOUT ME CARD */
+  .about-card {
+    background: var(--card);
     border-radius: 10px;
-    border: 1px solid rgba(0,110,255,0.3);
+    border: 1px solid var(--border-strong);
     overflow: hidden;
     width: 300px;
     flex-shrink: 0;
   }
-  .terminal-bar {
-    background: #141929;
-    padding: 10px 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    border-bottom: 1px solid rgba(0,110,255,0.2);
-  }
-  .t-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .t-red { background: #ff5f57; }
-  .t-yellow { background: #febc2e; }
-  .t-green { background: #28c840; }
-  .t-title {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    color: rgba(255,255,255,0.35);
-    margin-left: 6px;
-  }
-  .terminal-body {
-    padding: 1.25rem 1.25rem 1.5rem;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.72rem;
-    line-height: 1.9;
-  }
-  .t-comment { color: #4a5a8a; }
-  .t-key { color: #79b8ff; }
-  .t-str { color: #9ecbff; }
-  .t-num { color: #f97583; }
-  .t-bool { color: #b392f0; }
-  .t-cursor {
-    display: inline-block;
-    width: 7px; height: 13px;
+  .about-header {
     background: var(--blue);
-    vertical-align: middle;
-    animation: blink 1.1s infinite;
+    padding: 12px 16px;
   }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .about-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .about-body { padding: 0.25rem 0; }
+  .about-row {
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .about-row:last-child { border-bottom: none; }
+  .about-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+  .about-value {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text);
+  }
 
   /* SECTION */
   section {
@@ -528,7 +516,7 @@
 
   @media (max-width: 680px) {
     .hero-top { grid-template-columns: 1fr; }
-    .terminal { display: none; }
+    .about-card { display: none; }
     .projects-grid { grid-template-columns: 1fr; }
     .hero-stats { gap: 1rem; }
     nav { padding: 0 1rem; }
@@ -544,7 +532,7 @@
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
-    <span class="nav-badge">Open to Internship</span>
+
   </div>
 </nav>
 
@@ -565,58 +553,46 @@
         I build ML pipelines, optimisation models, and data-driven solutions —
         from enterprise RAG systems to sustainability-aligned energy models.
       </p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">6</span>
-          <span class="stat-label">Projects</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">2×</span>
-          <span class="stat-label">Award Winner</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">GMS</span>
-          <span class="stat-label">Scholar</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">'28</span>
-          <span class="stat-label">Graduation</span>
-        </div>
-      </div>
       <div class="hero-links">
         <a href="https://linkedin.com/in/hillaryfransiskus" class="hero-link primary" target="_blank">LinkedIn ↗</a>
         <a href="mailto:hillaryfransiskus88@gmail.com" class="hero-link secondary">Email me</a>
       </div>
     </div>
 
-    <!-- TERMINAL -->
-    <div class="terminal">
-      <div class="terminal-bar">
-        <div class="t-dot t-red"></div>
-        <div class="t-dot t-yellow"></div>
-        <div class="t-dot t-green"></div>
-        <span class="t-title">hillary.json</span>
+    <!-- ABOUT ME CARD -->
+    <div class="about-card">
+      <div class="about-header">
+        <div class="about-title">About Me</div>
       </div>
-      <div class="terminal-body">
-        <span class="t-comment"># profile</span><br>
-        {<br>
-        &nbsp;<span class="t-key">"name"</span>: <span class="t-str">"Hillary F."</span>,<br>
-        &nbsp;<span class="t-key">"role"</span>: <span class="t-str">"Data Analyst"</span>,<br>
-        &nbsp;<span class="t-key">"university"</span>: <span class="t-str">"SUTD"</span>,<br>
-        &nbsp;<span class="t-key">"gpa_track"</span>: <span class="t-str">"GMS Scholar"</span>,<br>
-        &nbsp;<span class="t-key">"open_to_work"</span>: <span class="t-bool">true</span>,<br>
-        &nbsp;<span class="t-key">"projects"</span>: <span class="t-num">6</span>,<br>
-        &nbsp;<span class="t-key">"languages"</span>: [<br>
-        &nbsp;&nbsp;<span class="t-str">"Python"</span>,<br>
-        &nbsp;&nbsp;<span class="t-str">"R"</span>,<br>
-        &nbsp;&nbsp;<span class="t-str">"SQL"</span>,<br>
-        &nbsp;&nbsp;<span class="t-str">"Julia"</span><br>
-        &nbsp;]<br>
-        }<br>
-        <span class="t-cursor"></span>
+      <div class="about-body">
+        <div class="about-row">
+          <span class="about-label">University</span>
+          <span class="about-value">SUTD, Singapore</span>
+        </div>
+        <div class="about-row">
+          <span class="about-label">Degree</span>
+          <span class="about-value">Engineering Systems & Design</span>
+        </div>
+        <div class="about-row">
+          <span class="about-label">Specialisation</span>
+          <span class="about-value">Business Analytics & Operations Research</span>
+        </div>
+        <div class="about-row">
+          <span class="about-label">Scholarship</span>
+          <span class="about-value">SUTD Global Merit Scholarship</span>
+        </div>
+        <div class="about-row">
+          <span class="about-label">Graduation</span>
+          <span class="about-value">May 2028</span>
+        </div>
+        <div class="about-row">
+          <span class="about-label">Languages</span>
+          <span class="about-value">English · Indonesian</span>
+        </div>
+        <div class="about-row">
+          <span class="about-label">Based in</span>
+          <span class="about-value">Singapore</span>
+        </div>
       </div>
     </div>
   </div>
@@ -633,9 +609,9 @@
   <div class="projects-grid">
 
     <!-- 1. Multi-Modal RAG -->
-    <div class="project-card ml">
+    <div class="project-card">
       <div class="card-header">
-        <span class="card-type">ML · NLP</span>
+        <span class="card-type">NLP</span>
         <span class="card-date">Jan – May 2026</span>
       </div>
       <div>
@@ -644,13 +620,12 @@
       </div>
       <ul class="project-highlights">
         <li>Built a Retrieval-Augmented Generation system for enterprise knowledge retrieval across text and image documents</li>
-        <li>Integrated EasyOCR, CLIP, Groq, and MiniLM — achieving ≥75% accuracy with ≤1 min runtime</li>
+        <li>Integrated EasyOCR, Groq, and MiniLM — achieving ≥75% accuracy with ≤1 min runtime</li>
         <li>Designed and built a 3-page Streamlit frontend; wired to backend for seamless end-to-end UX</li>
       </ul>
       <div class="card-tags">
         <span class="card-tag">Python</span>
         <span class="card-tag">Streamlit</span>
-        <span class="card-tag">CLIP</span>
         <span class="card-tag">EasyOCR</span>
         <span class="card-tag">Groq</span>
         <span class="card-tag">MiniLM</span>
@@ -659,7 +634,7 @@
     </div>
 
     <!-- 2. ELD Optimisation -->
-    <div class="project-card ml">
+    <div class="project-card">
       <div class="card-header">
         <span class="card-type">Optimisation · OR</span>
         <span class="card-date">Jan – May 2026</span>
@@ -682,9 +657,9 @@
     </div>
 
     <!-- 3. Air Pollution Regression -->
-    <div class="project-card ml">
+    <div class="project-card">
       <div class="card-header">
-        <span class="card-type">Data Analytics · ML</span>
+        <span class="card-type">Data Analytics</span>
         <span class="card-date">May – Aug 2025</span>
       </div>
       <div>
@@ -693,7 +668,7 @@
       </div>
       <ul class="project-highlights">
         <li>Built a multiple linear regression model predicting the impact of 5 factors on regional air pollution</li>
-        <li>Implemented in Python with full ML pipeline; cleaned and transformed raw datasets in Excel</li>
+        <li>Implemented in Python; cleaned and transformed raw datasets in Excel</li>
         <li>Iterated on feature selection to maximise model accuracy and interpretability</li>
       </ul>
       <div class="card-tags">
@@ -706,9 +681,9 @@
     </div>
 
     <!-- 4. Scene Composition -->
-    <div class="project-card ml">
+    <div class="project-card">
       <div class="card-header">
-        <span class="card-type">Computer Vision · ML</span>
+        <span class="card-type">Research · Image Generation</span>
         <span class="card-date">Sep – Dec 2025</span>
       </div>
       <div>
@@ -721,8 +696,6 @@
         <li>Conducted at Zhejiang University, Hangzhou as part of the international TIIDE programme</li>
       </ul>
       <div class="card-tags">
-        <span class="card-tag">ML</span>
-        <span class="card-tag">Computer Vision</span>
         <span class="card-tag">Data Labelling</span>
         <span class="card-tag">Image Generation</span>
       </div>
@@ -797,12 +770,11 @@
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-label">ML & Analytics</div>
+        <div class="skill-label">Analytics</div>
         <div class="skill-pills">
           <span class="skill-pill">scikit-learn</span>
           <span class="skill-pill">Regression</span>
           <span class="skill-pill">RAG</span>
-          <span class="skill-pill">CLIP</span>
           <span class="skill-pill">NLP</span>
         </div>
       </div>
@@ -845,9 +817,9 @@
 <!-- CONTACT -->
 <div class="contact-section" id="contact">
   <div class="contact-inner">
-    <div class="contact-mono">// get in touch</div>
+    <div class="contact-mono">get in touch</div>
     <h2>Let's <span>work</span> together</h2>
-    <p class="contact-sub">Open to internship opportunities in data analytics, ML, and business analytics</p>
+    <p class="contact-sub">Feel free to reach out for collaborations or opportunities</p>
     <div class="contact-links">
       <a href="mailto:hillaryfransiskus88@gmail.com" class="contact-link main">✉ hillaryfransiskus88@gmail.com</a>
       <a href="https://linkedin.com/in/hillaryfransiskus" class="contact-link alt" target="_blank">LinkedIn ↗</a>
